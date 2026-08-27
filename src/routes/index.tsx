@@ -53,7 +53,7 @@ function useReveal() {
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.28 });
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry?.isIntersecting ?? false), { threshold: 0.28 });
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
